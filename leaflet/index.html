@@ -63,6 +63,22 @@
 
 <body>
 
+
+
+<!-- The Modal -->
+<!-- <div id="myModal" class="modal">
+  <div class = "modal content"> -->
+
+  <!-- Modal content -->
+<!--   <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1>Some text in the Modal..</h1>
+  </div>
+
+</div> -->
+
+
+
   <div class="loader">Loading...</div>
   <div id="map"></div>
   <table id="maptable" class="display"></table>
@@ -73,6 +89,43 @@
       zoomControl: false,
       scrollWheelZoom: true
     }).setView([41.76,-72.69], 11); // default center is overridden by Google Sheet options and points
+ 
+
+    //     map.marker.onclick = function(event) {
+    //             var test444 = "test"
+    //             alert("You clicked on marker with customId: "+ test444); 
+    //             var modal = document.getElementById("myModal");
+
+    //             // Get the button that opens the modal
+    //             var btn = document.getElementById("myBtn");
+
+    //             // Get the <span> element that closes the modal
+    //             var span = document.getElementsByClassName("close")[0];
+
+    //             // When the user clicks the button, open the modal 
+    //             btn.onclick = function() {
+    //               modal.style.display = "block";
+    //             }
+
+    //             // When the user clicks on <span> (x), close the modal
+    //             span.onclick = function() {
+    //               modal.style.display = "none";
+    //             }
+
+    //             // When the user clicks anywhere outside of the modal, close it
+    //             window.onclick = function(event) {
+    //               if (event.target == modal) {
+    //                 modal.style.display = "none";
+    //               }
+    //             }
+
+
+
+    //     };
+    //         var test444 = map._layers[190]
+    // alert("You clicked on marker with customId: "+ test444);
+
+
   </script>
 
   <script type="text/javascript" src="google-doc-url.js"></script>
@@ -81,6 +134,8 @@
   <script type="text/javascript" src="scripts/polylabel.js"></script>
   <script type="text/javascript" src="scripts/procsv.js"></script>
   <script type="text/javascript" src="scripts/map.js"></script>
+  <!-- <script type="text/javascript" src="scripts/modalbox.js"></script> -->
+
 
 </body>
 </html>
