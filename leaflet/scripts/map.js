@@ -123,20 +123,45 @@ $(window).on('load', function() {
           point['Marker Color'].toLowerCase(),
           point['Icon Color']
         );
-
       if (point.Latitude !== '' && point.Longitude !== '') {
-        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-          .bindPopup("<b>" + point['Name'] + '</b><br>' +
+        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon, id:point['Found'], modaltitle:point['Name'], modaldesc:point['Description']})
+          .bindPopup("<b>" + '<button id="myBtn">'+ point['Name'] + '</button>' + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           point['Description']);
-
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
         }
 
         markerArray.push(marker);
 
-        marker.onclick = function(){modalbox.js}
+        marker.on('click',markerOnClick);
+        function markerOnClick(e) {
+          console.log(this.options.id);
+          console.log(this.options.modaltitle);
+          console.log(this.options.modaldesc);
+          var modal = document.getElementById("myModal");
+          var btn = document.getElementById("myBtn");
+          document.getElementById("modtitle").innerHTML = this.options.modaltitle;
+          document.getElementById("moddesc").innerHTML = this.options.modaldesc;
+          document.getElementById("modid").src = "https://planetrocks.utsc.utoronto.ca/sitePictures/" + this.options.id + "a.png";
+          btn.id = this.options.modaltitle;
+          console.log(btn);
+          var span = document.getElementsByClassName("close")[0];
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+
+
+        }
 
         
         // marker.on('click', function(){
